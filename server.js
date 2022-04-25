@@ -13,13 +13,13 @@ app.set('views', './pages');
 app.set('view engine', 'ejs');
 
 //main
-MongoClient.connect("mongodb://localhost:27017/testdb", {useUnifiedTopology: true}, (err, client) => {
+MongoClient.connect("mongodb://localhost:27017", {useUnifiedTopology: true}, (err, client) => {
 
     if (err) return console.error(err) //catches errors
     console.log('Connected to Database')
 
     //database stuf
-    const db = client.db();
+    const db = client.db('testdb');
     const collection = db.collection('testcollection');
 
     //index webpage
